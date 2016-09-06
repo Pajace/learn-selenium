@@ -24,5 +24,10 @@ def index():
     return render_template('view.html', form=form, s=s)
 
 
+@app.route('/')
+def root():
+    return render_template('entry.html')
+
+
 if __name__ == '__main__':
     app.run(debug=True)
