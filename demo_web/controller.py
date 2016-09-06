@@ -19,7 +19,7 @@ def index():
         r = form.r.data
         s = math.sin(r)
     else:
-        s = None
+        s = "Please input number for calculate sine."
 
     return render_template('view.html', form=form, s=s)
 

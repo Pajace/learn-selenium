@@ -25,6 +25,17 @@ class TestCase(unittest.TestCase):
         expected_value = '-0.9161956973220345'
         self.assertEqual(expected_value, actual_value)
 
+    def test_ing(self):
+        driver = self.driver
+        driver.get(self.base_url + "/demo")
+        driver.find_element_by_id("r").clear()
+        driver.find_element_by_id("r").send_keys("not number")
+        driver.find_element_by_css_selector("input[type=\"submit\"]").click()
+
+        actual_value = driver.find_element_by_id('result').text
+        expected_value = 'Please input number for calculate sine.'
+        self.assertEqual(expected_value, actual_value)
+
     def is_element_present(self, how, what):
         try:
             self.driver.find_element(by=how, value=what)
