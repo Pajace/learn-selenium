@@ -19,9 +19,14 @@ def index():
         r = form.r.data
         s = math.sin(r)
     else:
-        s = None
+        s = "Please enter number"
 
     return render_template('view.html', form=form, s=s)
+
+
+@app.route('/')
+def root():
+    return render_template('entry.html')
 
 
 if __name__ == '__main__':
